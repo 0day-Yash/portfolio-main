@@ -40,7 +40,7 @@
 
         document.getElementById("login-form").addEventListener("submit", async function(event) {
             event.preventDefault();
-
+            
             const email = document.getElementById("email").value;
             const password = document.getElementById("password").value;
 
@@ -55,10 +55,12 @@
                 // Store the session
                 localStorage.setItem('session', JSON.stringify(data.session))
                 
-                // Redirect to dashboard
-                window.location.href = '/dashboard.html'
+                // Redirect to home page instead of dashboard
+                window.location.replace('../index.html')
+                
             } catch (error) {
                 document.getElementById("error-message").textContent = error.message;
+                console.error('Login error:', error);
             }
         });
     </script>
